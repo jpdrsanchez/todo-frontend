@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 export const Main = styled.main`
   padding-top: 156px;
-  margin-bottom: -15px;
+  margin-bottom: -75px;
 
   @media (max-width: 1023px) {
     text-align: center;
