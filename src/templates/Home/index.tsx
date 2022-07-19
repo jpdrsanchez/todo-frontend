@@ -1,4 +1,10 @@
+import Main from './components/Main'
+
 const HomeTemplate = () => {
-  return <div>HomeTemplate</div>
+  return (
+    <>
+      <Main />
+    </>
+  )
 }
 export default HomeTemplate

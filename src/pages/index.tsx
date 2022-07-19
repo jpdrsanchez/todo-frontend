@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
 
 import BaseTemplate from 'templates/Base'
+import HomeTemplate from 'templates/Home'
 
 const HomePage: NextPage = () => {
   return (
     <BaseTemplate>
-      <h1>Initial Setup</h1>
+      <HomeTemplate />
     </BaseTemplate>
   )
 }

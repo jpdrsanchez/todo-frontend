@@ -6,7 +6,7 @@ export const Footer = styled.footer`
   background-image: linear-gradient(
     -1.4deg,
     var(--black) calc(80% - 1px),
-    var(--white) 80%
+    transparent 80%
   );
   background-size: cover;
   background-position: center top;
