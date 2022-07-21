@@ -42,12 +42,12 @@ const Header = (props: HeaderProps) => {
           )}
           {!props.isLoading && !props.isLoggedIn && (
             <Button onClick={visibility.show} size="small">
-              entrar
+              login
             </Button>
           )}
           {props.isLoggedIn && (
             <Button onClick={auth.logout} size="small">
-              sair
+              exit
             </Button>
           )}
         </S.HeaderContainer>
