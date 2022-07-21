@@ -4,7 +4,5 @@ export interface DtoLoginResponse {
     username: string
     email: string
   }
-  token: {
-    token: string
-  }
+  token: string
 }

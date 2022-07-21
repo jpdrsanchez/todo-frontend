@@ -8,4 +8,14 @@ export default class AuthService {
 
     return response.data
   }
+
+  static async logout(token: string) {
+    const response = await api.post(
+      '/auth/logout',
+      {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+
+    return response.data
+  }
 }

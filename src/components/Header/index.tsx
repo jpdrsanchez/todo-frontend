@@ -4,8 +4,9 @@ import { VscLoading } from 'react-icons/vsc'
 
 import * as S from './styles'
 import Button from 'components/Button'
-import Modal from 'components/Modal'
 import Login from './components/Login'
+import useVisibility from 'hooks/useVisibility'
+import useAuth from 'hooks/useAuth'
 
 interface HeaderProps {
   isLoggedIn: boolean
@@ -13,9 +14,12 @@ interface HeaderProps {
 }
 
 const Header = (props: HeaderProps) => {
+  const visibility = useVisibility()
+  const auth = useAuth()
+
   return (
     <>
-      <Login />
+      <Login visible={visibility.visible} onClose={visibility.hide} />
       <S.Header>
         <S.HeaderContainer>
           <Link href="/" passHref>
@@ -31,11 +35,21 @@ const Header = (props: HeaderProps) => {
               </span>
             </a>
           </Link>
-          <Button onClick={() => {}} size="small">
-            {props.isLoading && <VscLoading />}
-            {!props.isLoading && !props.isLoggedIn && 'entrar'}
-            {props.isLoggedIn && 'sair'}
-          </Button>
+          {props.isLoading && (
+            <Button onClick={() => {}} size="small">
+              <VscLoading />
+            </Button>
+          )}
+          {!props.isLoading && !props.isLoggedIn && (
+            <Button onClick={visibility.show} size="small">
+              entrar
+            </Button>
+          )}
+          {props.isLoggedIn && (
+            <Button onClick={auth.logout} size="small">
+              sair
+            </Button>
+          )}
         </S.HeaderContainer>
       </S.Header>
     </>

@@ -6,7 +6,7 @@ export default class Cookies {
     return cookies[cookieName] || undefined
   }
 
-  static set(value: string, cookieName: string) {
+  static set(cookieName: string, value: string) {
     const ONE_HOUR = 60 * 60
 
     setCookie(null, cookieName, value, {

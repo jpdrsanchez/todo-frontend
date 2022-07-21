@@ -2,16 +2,23 @@ import Image from 'next/image'
 
 import Modal from 'components/Modal'
 import * as S from './styles'
+import useLoginForm from './useLoginForm'
 
-const Login = () => {
+interface LoginProps {
+  visible: boolean
+  onClose: () => void
+}
+
+const Login = (props: LoginProps) => {
+  const form = useLoginForm(props.onClose)
   return (
     <Modal
-      visible={true}
-      onClose={() => {}}
+      visible={props.visible}
+      onClose={props.onClose}
       title="modal_title"
       description="modal_description"
     >
-      <S.CloseButton type="button" onClick={() => {}}>
+      <S.CloseButton type="button" onClick={props.onClose}>
         close
       </S.CloseButton>
       <S.Wrapper>
@@ -27,16 +34,30 @@ const Login = () => {
             <span>Sign In</span>
             <span>To access your list</span>
           </h2>
-          <S.Form onSubmit={e => e.preventDefault()}>
+          <S.Form onSubmit={form.handleSubmit(form.onSubmit)}>
             <div>
               <label htmlFor="username">User:</label>
-              <input type="text" name="username" id="username" />
+              <input
+                type="text"
+                id="username"
+                {...form.register('username')}
+                className={form.errors.username ? 'error' : ''}
+              />
+              {form.errors.username && <p>{form.errors.username.message}</p>}
             </div>
             <div>
               <label htmlFor="password">Password:</label>
-              <input type="password" name="password" id="password" />
+              <input
+                type="password"
+                id="password"
+                {...form.register('password')}
+                className={form.errors.password ? 'error' : ''}
+              />
+              {form.errors.password && <p>{form.errors.password.message}</p>}
             </div>
-            <button type="submit">Sign in</button>
+            <button type="submit" disabled={form.isSubmitting}>
+              {form.isSubmitting ? 'Signing In' : 'Sign in'}
+            </button>
           </S.Form>
         </S.Content>
       </S.Wrapper>

@@ -51,8 +51,18 @@ export const Form = styled.form`
   max-width: 342px;
 
   div {
+    position: relative;
+
     & + div {
       margin-top: 30px;
+    }
+
+    p {
+      color: #db504a;
+      font-size: 16px;
+      line-height: 20px;
+      bottom: 0;
+      left: 0;
     }
   }
 
@@ -74,6 +84,10 @@ export const Form = styled.form`
     border-radius: 10px;
     outline: 0px;
     padding: 14px;
+
+    &.error {
+      border-color: #db504a;
+    }
 
     &:focus {
       border-color: var(--black);
