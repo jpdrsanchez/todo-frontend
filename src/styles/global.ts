@@ -23,6 +23,7 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Colors */
     --white: #fff;
+    --white2: #f7f7f7;
     --black: #000;
     --primary: #4ac959;
     --secondary: #e88d39;

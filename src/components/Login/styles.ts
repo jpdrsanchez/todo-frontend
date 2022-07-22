@@ -16,32 +16,63 @@ export const CloseButton = styled.button`
 `
 
 export const Wrapper = styled.div`
-  padding: 0 52px 53px;
+  padding: 0 24px 53px;
   display: flex;
-  align-items: flex-start;
-  gap: 42px;
+  align-items: center;
+
+  @media (max-width: 599px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 600px) {
+    padding-left: 52px;
+    padding-right: 52px;
+  }
+
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+    gap: 20px 42px;
+  }
 `
 
 export const Content = styled.div`
   padding-top: 45px;
 
   h2 {
-    margin-bottom: 84px;
+    margin-bottom: 48px;
+
+    @media (max-width: 1023px) {
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      margin-bottom: 84px;
+    }
 
     span {
       display: block;
 
       &:nth-child(1) {
         font-weight: 700;
-        font-size: 80px;
-        line-height: 1;
+        font-size: 3rem;
+        line-height: 1.2;
+
+        @media (min-width: 600px) {
+          font-size: 5rem;
+          line-height: 1;
+        }
       }
 
       &:nth-child(2) {
         font-weight: 300;
-        font-size: 50px;
-        line-height: 64px;
+        font-size: 2rem;
+        line-height: 1.4;
         color: var(--primary);
+
+        @media (min-width: 600px) {
+          font-size: 3.125rem;
+          line-height: 4rem;
+        }
       }
     }
   }
@@ -49,6 +80,11 @@ export const Content = styled.div`
 
 export const Form = styled.form`
   max-width: 342px;
+
+  @media (max-width: 1023px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   div {
     position: relative;
@@ -63,6 +99,8 @@ export const Form = styled.form`
       line-height: 20px;
       bottom: 0;
       left: 0;
+      position: absolute;
+      transform: translateY(calc(100% + 5px));
     }
   }
 

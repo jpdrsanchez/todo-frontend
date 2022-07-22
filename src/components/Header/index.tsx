@@ -4,7 +4,7 @@ import { VscLoading } from 'react-icons/vsc'
 
 import * as S from './styles'
 import Button from 'components/Button'
-import Login from './components/Login'
+import Login from 'components/Login'
 import useVisibility from 'hooks/useVisibility'
 import useAuth from 'hooks/useAuth'
 

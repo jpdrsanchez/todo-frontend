@@ -60,4 +60,5 @@ export const TextItem = styled.span<TextItemProps>`
     css`
       font-weight: 700;
     `}
+  max-width: 220px;
 `

@@ -5,19 +5,25 @@ export enum ListTypes {
 
 interface ListContent {
   title: string
-  description: string
+  description: (number?: number) => string
   color: string
 }
 
 export const listContent: Record<ListTypes, ListContent> = {
   [ListTypes.TODO]: {
     title: 'To-do',
-    description: 'Take a breath<br />Start doing.',
+    description: () => {
+      return 'Take a breath<br />Start doing.'
+    },
     color: 'var(--secondary)'
   },
   [ListTypes.DONE]: {
     title: 'Done',
-    description: 'Congratulions!<br /><strong>You have done 5 tasks</strong>',
+    description: (number?: number) => {
+      if (number && number > 0)
+        return `Congratulions!<br /><strong>You have done ${number} tasks</strong>`
+      return ''
+    },
     color: 'var(--primary)'
   }
 }
