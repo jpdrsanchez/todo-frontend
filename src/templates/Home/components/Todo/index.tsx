@@ -56,7 +56,14 @@ const Todo = () => {
             >
               <S.ListWrapper>
                 <List
+                  selectedTask={tasks.currentTask}
+                  onEdit={tasks.updateTaskTitle}
+                  onSave={tasks.clearCurrentTask}
+                  onSubmit={tasksService.update}
                   type={ListTypes.TODO}
+                  onDelete={tasksService.remove}
+                  onCreate={tasksService.create}
+                  onDeleteAll={tasksService.removeAll}
                   tasks={tasksService.tasks
                     .filter(task => task.status === 'TODO')
                     .sort((a, b) => {
@@ -66,7 +73,13 @@ const Todo = () => {
                     })}
                 />
                 <List
+                  onEdit={tasks.updateTaskTitle}
+                  onSave={tasks.clearCurrentTask}
+                  onSubmit={tasksService.update}
                   type={ListTypes.DONE}
+                  onDelete={tasksService.remove}
+                  onCreate={tasksService.create}
+                  onDeleteAll={tasksService.removeAll}
                   tasks={tasksService.tasks
                     .filter(task => task.status === 'DONE')
                     .sort((a, b) => {

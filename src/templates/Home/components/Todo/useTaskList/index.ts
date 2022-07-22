@@ -1,10 +1,12 @@
 import React from 'react'
 import { DropResult } from 'react-beautiful-dnd'
-
 import { DtoTask } from 'services/api/tasks/dtoGetTasksResponse'
+
 import { DtoUpdateTasksRequest } from 'services/api/tasks/dtoUpdateTasksRequest'
 
 const useTaskList = () => {
+  const [currentTask, setCurrentTask] = React.useState<DtoTask>()
+
   const reOrderList = React.useCallback(
     async (
       result: DropResult,
@@ -29,8 +31,19 @@ const useTaskList = () => {
     []
   )
 
+  const updateTaskTitle = React.useCallback((tasks: DtoTask[], id: number) => {
+    setCurrentTask(tasks.find(task => task.id === id))
+  }, [])
+
+  const clearCurrentTask = React.useCallback(() => {
+    setCurrentTask(undefined)
+  }, [])
+
   return {
-    reOrderList
+    reOrderList,
+    updateTaskTitle,
+    clearCurrentTask,
+    currentTask
   }
 }
 

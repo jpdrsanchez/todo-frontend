@@ -5,10 +5,20 @@ import { DtoTask } from 'services/api/tasks/dtoGetTasksResponse'
 import Item from './components/Item'
 import { listContent, ListTypes } from './constants'
 import * as S from './styles'
+import { DtoUpdateTasksRequest } from 'services/api/tasks/dtoUpdateTasksRequest'
+import AddItem from './components/AddItem'
+import Button from 'components/Button'
 
 export interface ListProps {
   type: ListTypes
   tasks: DtoTask[]
+  onEdit: (tasks: DtoTask[], id: number) => void
+  onSave: () => void
+  onSubmit: (id: string | number, field: DtoUpdateTasksRequest) => Promise<void>
+  onDelete: (id: string | number) => Promise<void>
+  onCreate: (title: string) => Promise<void>
+  onDeleteAll: (status: 'TODO' | 'DONE') => Promise<void>
+  selectedTask?: DtoTask
 }
 
 const List = (props: ListProps) => {
@@ -56,12 +66,36 @@ const List = (props: ListProps) => {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
-                    <Item done={task.status === 'DONE'} title={task.title} />
+                    <Item
+                      done={task.status === 'DONE'}
+                      id={task.id}
+                      title={task.title}
+                      onEdit={() => props.onEdit(props.tasks, task.id)}
+                      onSubmit={async (title: string) => {
+                        props.onSave()
+                        await props.onSubmit(task.id, { title })
+                      }}
+                      onUpdateStatus={async status => {
+                        await props.onSubmit(task.id, { status })
+                      }}
+                      selectedTask={props.selectedTask}
+                      onDelete={props.onDelete}
+                    />
                   </div>
                 )}
               </Draggable>
             ))}
             {provided.placeholder}
+            {props.type === ListTypes.TODO && (
+              <AddItem onSubmit={props.onCreate} />
+            )}
+            <Button
+              onClick={() => {
+                props.onDeleteAll(props.type)
+              }}
+            >
+              erase all
+            </Button>
           </S.List>
         )}
       </Droppable>

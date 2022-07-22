@@ -51,6 +51,10 @@ export const Wrapper = styled.div.attrs<WrapperProps>(({ type }) => {
       font-weight: 700;
     }
   }
+
+  & > button {
+    margin: 0 auto;
+  }
 `
 
 export const List = styled.ul`

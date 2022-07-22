@@ -1,15 +1,31 @@
+import React from 'react'
+import toast from 'react-hot-toast'
+import { DtoTask } from 'services/api/tasks/dtoGetTasksResponse'
+import { ListTypes } from '../../constants'
 import * as S from './styles'
 
 interface ItemProps {
+  id: number
   title: string
   done: boolean
+  onEdit: () => void
+  onSubmit: (title: string) => Promise<void>
+  onUpdateStatus: (status: 'DONE' | 'TODO') => Promise<void>
+  onDelete: (id: number | string) => Promise<void>
+  selectedTask?: DtoTask
 }
 
 const Item = (props: ItemProps) => {
+  const [editedText, setEditedText] = React.useState(props.title)
+
   return (
     <S.Item>
       {props.done && (
-        <S.CheckItem>
+        <S.CheckItem
+          onClick={() => {
+            props.onUpdateStatus(ListTypes['TODO'])
+          }}
+        >
           <svg
             width="24"
             height="24"
@@ -25,14 +41,18 @@ const Item = (props: ItemProps) => {
         </S.CheckItem>
       )}
       {!props.done && (
-        <S.CheckItem>
+        <S.CheckItem
+          onClick={() => {
+            props.onUpdateStatus(ListTypes['DONE'])
+          }}
+        >
+          <span className="visually-hidden">Complete this task</span>
           <input
             type="checkbox"
             name="complete"
             id="complete"
             className="visually-hidden"
           />
-          <span className="visually-hidden">Complete this task</span>
           <div>
             <svg
               width="12"
@@ -61,7 +81,30 @@ const Item = (props: ItemProps) => {
           </div>
         </S.CheckItem>
       )}
-      <S.TextItem>{props.title}</S.TextItem>
+      <div>
+        {props.selectedTask?.id !== props.id && (
+          <S.TextItem onClick={props.onEdit}>{props.title}</S.TextItem>
+        )}
+        {props.selectedTask?.id === props.id && (
+          <S.InputItem
+            onSubmit={async e => {
+              e.preventDefault()
+              if (editedText.length < 2)
+                toast.error('The title must be at least 2 characters long')
+              else await props.onSubmit(editedText)
+            }}
+          >
+            <input
+              type="text"
+              value={editedText}
+              onChange={({ target }) => setEditedText(target.value)}
+            />
+          </S.InputItem>
+        )}
+      </div>
+      <S.DeleteButton onClick={() => props.onDelete(props.id)}>
+        delete
+      </S.DeleteButton>
     </S.Item>
   )
 }
