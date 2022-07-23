@@ -4,6 +4,8 @@ import '@fontsource/montserrat/400.css'
 import '@fontsource/montserrat/500.css'
 import '@fontsource/montserrat/600.css'
 import '@fontsource/montserrat/700.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import { Toaster } from 'react-hot-toast'
 
 import { GlobalStyles } from 'styles/global'

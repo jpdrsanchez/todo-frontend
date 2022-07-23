@@ -422,3 +422,29 @@ export const a11y = css`
     width: 1px;
   }
 `
+
+export const soleilFont = css`
+  @font-face {
+    font-family: 'Soleil';
+    src: url('/fonts/SoleilLight.otf') format('opentype');
+    font-weight: 300;
+  }
+
+  @font-face {
+    font-family: 'Soleil';
+    src: url('/fonts/SoleilRegular.otf') format('opentype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'Soleil';
+    src: url('/fonts/SoleilBook.otf') format('opentype');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'Soleil';
+    src: url('/fonts/SoleilBold.otf') format('opentype');
+    font-weight: 700;
+  }
+`

@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
-import { a11y, normalize, reset } from './utils'
+import { a11y, normalize, reset, soleilFont } from './utils'
 
 export const GlobalStyles = createGlobalStyle`
   ${normalize}
   ${reset}
   ${a11y}
+  ${soleilFont}
 
   html {
     box-sizing: border-box;
@@ -20,16 +21,20 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     /* Typography */
     --text: "Montserrat", sans-serif;
+    --tag: 'Soleil', sans-serif;
 
     /* Colors */
     --white: #fff;
     --white2: #f7f7f7;
     --black: #000;
+    --black2: #312F4F;
     --primary: #4ac959;
     --secondary: #e88d39;
     --gray: #a2a2a2;
     --gray2: #959595;
     --gray3: #999;
+    --gray4: #9499b3;
+    --gray5: #C4C4C4;
   }
 
   body {

@@ -79,6 +79,11 @@ export const TodoIntro = styled.div`
   }
 `
 
+export const TasksIntro = styled.div`
+  background: url('/images/tasks-bg.svg') no-repeat top 24px left;
+  background-size: auto;
+`
+
 export const ListWrapper = styled.div`
   display: grid;
   gap: 60px 20px;

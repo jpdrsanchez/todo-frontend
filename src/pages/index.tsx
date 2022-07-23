@@ -16,7 +16,7 @@ const HomePage: NextPage = () => {
 
   return (
     <BaseTemplate {...user}>
-      <HomeTemplate {...user} />
+      <HomeTemplate />
     </BaseTemplate>
   )
 }
