@@ -1,4 +1,5 @@
 import Articles from './components/Articles'
+import Contact from './components/Contact'
 import Main from './components/Main'
 import Todo from './components/Todo'
 
@@ -8,6 +9,7 @@ const HomeTemplate = () => {
       <Main />
       <Todo />
       <Articles />
+      <Contact />
     </>
   )
 }

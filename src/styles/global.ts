@@ -28,6 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     --white2: #f7f7f7;
     --black: #000;
     --black2: #312F4F;
+    --black3: #06152B;
     --primary: #4ac959;
     --secondary: #e88d39;
     --gray: #a2a2a2;
@@ -35,6 +36,8 @@ export const GlobalStyles = createGlobalStyle`
     --gray3: #999;
     --gray4: #9499b3;
     --gray5: #C4C4C4;
+    --gray6: #9A9A9A;
+    --green: #46BD62;
   }
 
   body {
