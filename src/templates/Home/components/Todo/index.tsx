@@ -20,7 +20,7 @@ const Todo = () => {
   return (
     <>
       <Login visible={visibility.visible} onClose={visibility.hide} />
-      <S.Todo>
+      <S.Todo id="todo">
         <S.TodoIntro>
           <Container>
             <h2>To-do List</h2>

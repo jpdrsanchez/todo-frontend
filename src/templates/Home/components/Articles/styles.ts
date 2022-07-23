@@ -8,14 +8,26 @@ export const Section = styled.section`
     font-weight: 600;
     font-size: 3rem;
     line-height: 1.1;
-    margin-left: 60px;
-    margin-right: 140px;
     position: relative;
     z-index: 500;
     color: var(--white);
     padding-top: 80px;
-    padding-left: 80px;
+    padding-left: 20px;
     padding-bottom: 40px;
+
+    @media (max-width: 799px) {
+      padding-right: 20px;
+      text-align: center;
+    }
+
+    @media (min-width: 800px) {
+      padding-left: 80px;
+      margin-right: 140px;
+    }
+
+    @media (min-width: 1300px) {
+      margin-left: 60px;
+    }
 
     &::before {
       content: '';
@@ -35,5 +47,8 @@ export const Section = styled.section`
 export const CarouselWrapper = styled.div`
   position: relative;
   z-index: 600;
-  padding-left: 140px;
+
+  @media (min-width: 1300px) {
+    padding-left: 140px;
+  }
 `

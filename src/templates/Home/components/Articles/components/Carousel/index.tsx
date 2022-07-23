@@ -1,16 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Pagination } from 'swiper'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { articles } from './mocks/items'
 import * as S from './styles'
 
 const Carousel = () => {
-  const swiper = useSwiper()
-
   return (
     <>
-      <Swiper slidesPerView={3} modules={[Pagination]}>
+      <Swiper
+        slidesPerView={1}
+        breakpoints={{ 799: { slidesPerView: 2 }, 1023: { slidesPerView: 3 } }}
+      >
         {articles.map(article => (
           <SwiperSlide key={article.id}>
             <S.SliderItem>
@@ -82,9 +82,9 @@ const Carousel = () => {
         ))}
       </Swiper>
       <S.SlideBulletWrapper>
-        <S.SlideBullet onClick={() => swiper.slideTo(0)} />
-        <S.SlideBullet onClick={() => swiper.slideTo(3)} />
-        <S.SlideBullet onClick={() => swiper.slideTo(6)} />
+        <S.SlideBullet />
+        <S.SlideBullet />
+        <S.SlideBullet />
       </S.SlideBulletWrapper>
     </>
   )

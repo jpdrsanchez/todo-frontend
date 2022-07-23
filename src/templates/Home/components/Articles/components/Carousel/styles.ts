@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
 export const SliderItem = styled.div`
-  padding: 5px 20px 30px 10px;
+  padding: 5px 15px 30px 15px;
+
+  @media (min-width: 600px) {
+    padding-right: 20px;
+    padding-left: 10px;
+  }
 
   & > div {
     box-shadow: 2px 4px 20px rgba(12, 41, 208, 0.12);
@@ -9,6 +14,12 @@ export const SliderItem = styled.div`
     position: relative;
     border-radius: 16px;
     overflow: hidden;
+
+    @media (max-width: 799px) {
+      width: 100%;
+      max-width: 350px;
+      margin: 0 auto;
+    }
   }
 `
 
