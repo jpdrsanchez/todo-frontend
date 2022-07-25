@@ -40,7 +40,11 @@ export const FormImage = styled.div`
   z-index: 800;
   transform: translateY(calc(-50% - 60px));
   margin: 0 auto;
-  margin-bottom: -164px;
+  margin-bottom: -144px;
+
+  @media (min-width: 600px) {
+    margin-bottom: -164px;
+  }
 `
 
 export const FormTitle = styled.div`
