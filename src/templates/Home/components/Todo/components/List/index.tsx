@@ -50,9 +50,9 @@ const List = (props: ListProps) => {
       <Droppable droppableId={props.type} key={uuid()}>
         {provided => (
           <S.List
-            ref={provided.innerRef}
             key={uuid()}
             {...provided.droppableProps}
+            ref={provided.innerRef}
           >
             {props.tasks.map(task => (
               <Draggable
