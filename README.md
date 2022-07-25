@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Coopers TODO app - Frontend
 
-## Getting Started
+[Live URL](https://github.com/jpdrsanchez/todo-frontend)
+[repositório back-end](https://github.com/jpdrsanchez/todo-api)
 
-First, run the development server:
+## Stack utilizada
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- NextJS
+- Styled Components
+- Jest e RTL
+- Axios
+- React Hook Form e Yup
+- Nookies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura do projeto
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- `public` - contém todos os assets estáticos do projeto, como imagens, e tipografias externas.
+- `src/components` - componentes gerais e reutilizavies em toda a aplicação, ex: Header, Footer, Botões, Container, Modal e etc...
+- `src/config` - configurações globais de bibliotecas externas.
+- `src/hooks` - hooks globais da aplicação, como por exemplo hooks de autenticação e informações globais.
+- `src/interfaces` - interfaces globais da aplicação.
+- `src/pages` - páginas da aplicação, diretório obrigatório em uma aplicação em nextJS pois aqui o será feito o roteamento automático com base no nome da página
+- `src/services` - serviços da aplicação, como por exemplo comunicação com a nossa API em NodeJS
+- `src/styles` - estilos gerais da aplicação, além de helpers de acessibilidade como a classe `.visually-hidden`
+- `src/templates` - página dos templates gerais da aplicação referente à cada uma das páginas do app, contendo seus componentes e todas as suas lógicas.
+- `src/utils` - funções e helpers úteis para serem reutilizados em toda a aplicação
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Vale observar que foi aplicada no projeto uma pattern que tenho achado o tanto quanto interessante, aonde separamos a lógica de um componente dentro de um custom hook dentro dele, o template da aplicação não precisa saber de sua lógica, assim o código fica mais limpo e de mais fácil entendimento.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+O projeto conta também com uma configuração de ESLint e prettier, indispensável para manter um padrão de código uniforme em toda a aplicação.
