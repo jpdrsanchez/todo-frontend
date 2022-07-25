@@ -73,20 +73,26 @@ export const SliderContent = styled.div`
   }
 `
 
-export const SlideBulletWrapper = styled.nav`
+export const SlideBullets = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
-`
 
-export const SlideBullet = styled.button`
-  width: 29px;
-  height: 29px;
-  display: block;
-  border-radius: 50%;
-  border: none;
-  appearance: none;
-  background: var(--gray5);
-  cursor: pointer;
+  .slick-active button {
+    background: var(--primary);
+  }
+
+  button {
+    width: 29px;
+    height: 29px;
+    display: block;
+    border-radius: 50%;
+    border: none;
+    appearance: none;
+    background: var(--gray5);
+    cursor: pointer;
+    padding: 0;
+    text-indent: -9999px;
+  }
 `
