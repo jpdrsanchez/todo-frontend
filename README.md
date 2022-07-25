@@ -1,7 +1,7 @@
 # Coopers TODO app - Frontend
 
-[Live URL](https://github.com/jpdrsanchez/todo-frontend)
-[repositório back-end](https://github.com/jpdrsanchez/todo-api)
+- [Live URL](https://todo-frontend-sigma.vercel.app/)
+- [Repositório back-end](https://github.com/jpdrsanchez/todo-api)
 
 ## Stack utilizada
 
